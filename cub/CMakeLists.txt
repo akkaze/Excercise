@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 2.8)
+set(project_name nvTest)
+
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
+find_package(CUDA)
+set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-gencode arch=compute_30,code=sm_30)
+set(CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE ON)
+FILE(GLOB SRC_LIST "./*.cpp")     
+FOREACH(src ${SRC_LIST})
+MESSAGE( Find: ${src} )
+ENDFOREACH(src)                                     
+FILE(GLOB CUDA_SRC_LIST "./*.cu")         
+FOREACH(src ${CUDA_SRC_LIST})
+MESSAGE( Find: ${src} )
+ENDFOREACH(src)
+
+find_package(CUB REQUIRED)
+include_directories(${CUB_INCLUDE_DIR})
+include_directories(${CUB_DIR})
+CUDA_ADD_EXECUTABLE(${project_name} ${CUDA_SRC_LIST})

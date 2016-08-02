@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
+
+project(cltest)
+
+if(CMAKE_COMPILER_IS_GNUCXX)
+    add_definitions(-std=gnu++0x)
+endif()
+
+find_package(OpenCL  REQUIRED)
+
+include_directories(${OpenCL_INCLUDE_DIRS})
+link_directories(${OpenCL_LIBRARY_DIRS})
+add_definitions(${OpenCL_DEFINITIONS})
+set(CMAKE_BUILD_TYPE Debug)
+add_executable (main main.cpp)
+target_link_libraries (main ${OpenCL_LIBRARIES})

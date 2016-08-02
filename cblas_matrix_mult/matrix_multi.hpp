@@ -1,0 +1,210 @@
+#include <cblas.h>
+#include <Eigen/Dense>
+#include <Eigen/Eigenvalues>
+#include <random>
+#include <algorithm>
+using namespace Eigen;  
+using namespace std;
+
+typedef Eigen::Matrix<double,Dynamic,Dynamic,RowMajor> MyMatrix;
+typedef Eigen::Matrix<complex<double>,Dynamic,Dynamic,RowMajor> MyMatrixC;
+void generate_data_prod(double*& A,double*& B,int& m,int& n,int& k)
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> int_dis(10,1000);
+//	uniform_int_distribution<int> col_dis(100,10000);
+	
+	m = int_dis(gen);
+	n = int_dis(gen);
+	k = int_dis(gen);
+	
+	uniform_real_distribution<double> real_dis(-10,10);
+	A = new double[m * k];
+	for(int i = 0; i < m * k; i++)
+	{
+		A[i] = real_dis(gen);
+	}
+	B = new double[k * n];
+	for(int i = 0; i < k * n; i++)
+	{
+		B[i] = real_dis(gen);
+	}
+	return;
+}
+
+void generate_data_transprod(double*& A,double*& B,int& m,int& n,int& k)
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> int_dis(1000,10000);
+	m = int_dis(gen);
+	n = int_dis(gen);
+	k = int_dis(gen);
+	
+	uniform_real_distribution<double> real_dis(-10,10);
+	A = new double[k * m];
+	for(int i = 0; i < k * m; i++)
+	{
+		A[i] = real_dis(gen);
+	}
+	B = new double[k * n];
+	for(int i = 0; i < k * n; i++)
+	{
+		B[i] = real_dis(gen);
+	}
+	return;
+}
+
+void generate_data_prodtrans(double*& A,double*& B,int& m,int& n,int& k)
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> int_dis(1000,10000);
+	m = int_dis(gen);
+	n = int_dis(gen);
+	k = int_dis(gen);
+	
+	uniform_real_distribution<double> real_dis(-10,10);
+	A = new double[m * k];
+	for(int i = 0; i < m * k; i++)
+	{
+		A[i] = real_dis(gen);
+	}
+	B = new double[n * k];
+	for(int i = 0; i < n * k; i++)
+	{
+		B[i] = real_dis(gen);
+	}
+	return;
+}
+//A(m * k)
+//B(k * n)
+//C(m * n)
+void prod(double* A,double* B,double *C,int m,int n,int k)
+{
+	cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                m, n, k, 1.0, A, k, B, n, 0.0, C, n);
+}
+
+//A(k * m)
+//B(k * n)
+//C(m * n)
+void transProd(double* A,double* B,double *C,int m,int n,int k)
+{
+	cblas_dgemm(CblasRowMajor, CblasTrans, CblasNoTrans, 
+                m, n, k, 1.0, A, m, B, n, 0.0, C, n);
+}
+
+//A(m * k)
+//B(n * k)
+//C(m * n)
+void prodTrans(double* A,double* B,double *C,int m,int n,int k)
+{
+	cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasTrans, 
+                m, n, k, 1.0, A, k, B, k, 0.0, C, n);
+}
+
+void prodEigen(double* A,double* B,double* C,int m,int n,int k)
+{
+	MyMatrix MatrixA = Map<MyMatrix>(A,m,k);
+	MyMatrix MatrixB = Map<MyMatrix>(B,k,n);
+	MyMatrix MatrixC = MatrixA * MatrixB;
+	memcpy(C,MatrixC.data(),sizeof(double) * MatrixC.rows() * MatrixC.cols());
+}
+
+void transProdEigen(double* A,double* B,double* C,int m,int n,int k)
+{
+	MyMatrix MatrixA = Map<MyMatrix>(A,k,m);
+	MyMatrix MatrixB = Map<MyMatrix>(B,k,n);
+	MyMatrix MatrixC = MatrixA.transpose() * MatrixB;
+	memcpy(C,MatrixC.data(),sizeof(double) * MatrixC.rows() * MatrixC.cols());
+}
+
+void prodTransEigen(double* A,double* B,double* C,int m,int n,int k)
+{
+	MyMatrix MatrixA = Map<MyMatrix>(A,m,k);
+	MyMatrix MatrixB = Map<MyMatrix>(B,n,k);
+	MyMatrix MatrixC = MatrixA * MatrixB.transpose();
+	memcpy(C,MatrixC.data(),sizeof(double) * MatrixC.rows() * MatrixC.cols());
+}
+
+MyMatrix covEigen(double* A,int m,int n)
+{
+	double* meanA = new double[m];
+	memset(meanA,0,sizeof(double) * m);
+	for(int i = 0; i < m; i++)
+		for(int j = 0; j < n; j++)
+		{
+			*(meanA + i) += *(A + i * n + j);
+		}
+	for(int i = 0; i < m; i++)
+	{
+		*(meanA + i) /= n;
+	}
+	for(int i = 0; i < m; i++)
+		for(int j = 0; j < n; j++)
+		{
+			*(A + i * n + j) -= *(meanA + i);
+		}
+	MyMatrix MatrixA = Map<MyMatrix>(A,m,n);
+	MyMatrix MatrixC = (MatrixA * MatrixA.transpose()) / (n - 1);
+	return MatrixC;
+}
+
+void pca(double* A,int m,int n)
+{
+	double* meanA = new double[m];
+	memset(meanA,0,sizeof(double) * m);
+	for(int i = 0; i < m; i++)
+		for(int j = 0; j < n; j++)
+		{
+			*(meanA + i) += *(A + i * n + j);
+		}
+	for(int i = 0; i < m; i++)
+	{
+		*(meanA + i) /= n;
+	}
+	for(int i = 0; i < m; i++)
+		for(int j = 0; j < n; j++)
+		{
+			*(A + i * n + j) -= *(meanA + i);
+		}
+	MyMatrix MatrixA = Map<MyMatrix>(A,m,n);
+	MyMatrix MatrixC = (MatrixA * MatrixA.transpose()) / (n - 1);
+
+	EigenSolver<MyMatrix> es(MatrixC);
+	MyMatrixC DC = es.eigenvalues();
+	MyMatrix D = DC.real();
+	MyMatrixC VC = es.eigenvectors();
+	MyMatrix V = VC.real();
+	vector<pair<double,VectorXd>> val_vecs;
+	for(int i = 0; i < m; i++)
+	{
+		val_vecs.push_back(make_pair(D(i),V.col(i)));	
+	}
+	sort(val_vecs.begin(),val_vecs.end(),
+		[](pair<double,VectorXd> lhs,
+			pair<double,VectorXd> rhs)
+			{
+				return lhs.first < rhs.first;
+			});	
+
+	MyMatrix M(m,m);
+	for(int i = 0; i < m; i++)
+	{
+		M.col(i) = val_vecs[i].second;
+	}
+	
+	MyMatrix rot = M.transpose() * MatrixA;
+	for(int i = 0; i < m; i++)
+		for(int j = 0; j < n;j++)
+		{
+			*(rot.data() + i * n + j) += *(meanA + i);
+		}
+	random_device rd;
+	mt19937 gen(rd());	
+	normal_distribution<double> dis(0,0.1);
+	
+	delete[] meanA;
+}

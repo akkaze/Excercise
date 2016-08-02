@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zak/Exercise/cuda-mix/vec_add.cpp
+stdio.h
+-
+vec_add.h
+/home/zak/Exercise/cuda-mix/vec_add.h
+
+/home/zak/Exercise/cuda-mix/vec_add.h
+

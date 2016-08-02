@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/nvTest.dir/nvTest_generated_example_block_scan.cu.o  -o nvTest -rdynamic /usr/local/cuda/lib64/libcudart.so -Wl,-rpath,/usr/local/cuda/lib64 

@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -O2 -pthread -fopenmp -O3 -DNDEBUG   CMakeFiles/runUnitTests.dir/main.cpp.o  -o runUnitTests -rdynamic gtest/libgtest.a gtest/libgtest_main.a -lopenblas gtest/libgtest.a -lpthread 

@@ -1,0 +1,3 @@
+/home/zak/Code/cblas_matrix_mult/CMakeFiles/runUnitTests.dir
+/home/zak/Code/cblas_matrix_mult/gtest/CMakeFiles/gtest.dir
+/home/zak/Code/cblas_matrix_mult/gtest/CMakeFiles/gtest_main.dir

@@ -1,0 +1,2 @@
+/usr/bin/ar cq libvecAdd.a  CMakeFiles/vecAdd.dir/vecAdd_generated_vec_add_gpu.cu.o
+/usr/bin/ranlib libvecAdd.a

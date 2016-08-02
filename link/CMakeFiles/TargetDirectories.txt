@@ -1,0 +1,2 @@
+/home/zak2616/Exercise/link/CMakeFiles/nvTest.dir
+/home/zak2616/Exercise/link/CMakeFiles/vecAdd.dir

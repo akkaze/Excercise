@@ -1,0 +1,1 @@
+	nvcc -c vec_add_gpu.cu

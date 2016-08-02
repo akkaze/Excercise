@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zak/Exercise/data-augmentation/image_generator.hpp
+opencv2/opencv.hpp
+/home/zak/Exercise/data-augmentation/opencv2/opencv.hpp
+cassert
+-
+random
+-
+cmath
+-
+vector
+-
+unordered_map
+-
+iostream
+-
+boost/algorithm/string/split.hpp
+-
+boost/filesystem.hpp
+-
+
+/home/zak/Exercise/data-augmentation/main.cpp
+image_generator.hpp
+/home/zak/Exercise/data-augmentation/image_generator.hpp
+google/gflags.h
+/home/zak/Exercise/data-augmentation/google/gflags.h
+vector
+-
+iostream
+-
+

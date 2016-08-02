@@ -1,0 +1,2 @@
+/home/zak/Exercise/cuda-mix/CMakeFiles/nvTest.dir
+/home/zak/Exercise/cuda-mix/CMakeFiles/vecAdd.dir

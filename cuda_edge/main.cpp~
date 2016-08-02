@@ -1,0 +1,8 @@
+#include "edge_detection.h"
+
+int main()
+{
+	cv::Mat im = cv::imread("",cv::IMREAD_UNCHANGED);
+	cv::Mat edge_map = sobel_gpu(im);
+	return 0;
+}

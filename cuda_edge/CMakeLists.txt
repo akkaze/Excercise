@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 2.8)
+set(project_name edge)
+find_package(CUDA)
+set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-gencode arch=compute_20,code=sm_20)
+set(CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE ON)
+FILE(GLOB SRC_LIST "./*.cpp")     
+FOREACH(src ${SRC_LIST})
+MESSAGE( Find: ${src} )
+ENDFOREACH(src)                                     
+FILE(GLOB CUDA_SRC_LIST "./*.cu")         
+FOREACH(src ${CUDA_SRC_LIST})
+MESSAGE( Find: ${src} )
+ENDFOREACH(src)
+
+FIND_PACKAGE(OpenCV REQUIRED)
+
+include_directories(${OpenCV_INCLUDE_PATH})
+
+CUDA_ADD_EXECUTABLE(${project_name} ${CUDA_SRC_LIST} OPTIONS ${CUDA_NVCC_FLAGS})
+TARGET_LINK_LIBRARIES(${project_name} ${OpenCV_LIBRARIES})  

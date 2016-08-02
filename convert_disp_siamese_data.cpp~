@@ -1,0 +1,262 @@
+#include <fstream>  // NOLINT(readability/streams)
+#include <string>
+#include <random>
+#include <vector>
+
+#include <time.h>
+#include <string.h>
+
+#include <boost/filesystem.hpp>
+
+#include "glog/logging.h"
+#include "google/protobuf/text_format.h"
+#include "stdint.h"
+
+#include "caffe/proto/caffe.pb.h"
+#include "caffe/util/format.hpp"
+#include "caffe/util/math_functions.hpp"
+
+#include "opencv2/core.hpp"
+#include "opencv2/imgcodecs.hpp"
+
+#define USE_LEVELDB
+#ifdef USE_LEVELDB
+#include "leveldb/db.h"
+
+using fs = boost::filesystem;
+
+#define PATCH_SIZE 9
+#define HALF_PATCH_SIZE 4
+#define PIXEL_COUNT 81
+
+#define NEG_LOW 3
+#define NEG_HIGH 9
+
+#define POS 2
+bool is_inside(const cv::Point2i& pt,const cv::Mat& img)
+{
+	return (pt.x >= 0 && pt.x < img.cols &&
+		 pt.y >= 0 && pt.y< img.rows);
+}
+
+const cv::Mat crop_image_patch(const cv::Mat& img,const int& cx,const int& cy)
+{
+	assert(!img.empty());
+	cv::Mat patch;
+	
+	cv::Point2i tl(cx - HALF_PATCH_SIZE, 
+		cy - HALF_PATCH_SIZE);
+	cv::Point2i rb(cx + HALF_PATCH_SIZE, 
+		cy + HALF_PATCH_SIZE);
+	
+	if(!is_inside(tl,img) || !is_inside(rb,img))
+		return patch;
+	else
+	{
+		cv::Rect rect(cx - HALF_PATCH_SIZE,
+			cy - HALF_PATCH_SIZE,
+			PATCH_SIZE, 
+			PATCH_SIZE);
+		img(rect).copyTo(patch);
+		assert(!patch.empty());
+		return patch;
+	}
+}
+
+std::vector<const char*> list_filename(const char* dirname)
+{
+	std::vector<const char*> filenames;
+	fs::path dir_path(dirname);
+	fs::directory_iterator end_itr;
+	for(fs::directory_iterator itr(dir_path); itr != end_itr; ++itr)
+    {
+        // If it's not a directory, list it. If you want to list directories too, just remove this check.
+        if (is_regular_file(itr->path())) {
+            // assign current file name to current_file and echo it out to the console.
+            string& current_file = itr->path().string();
+           	filenames.push_back(current_file.c_str());
+        }
+    }
+}
+
+class Random {
+public:
+    Random();
+    Random(std::mt19937::result_type seed,int _min,int _max) : 
+    	eng(seed), min(_min), max(_max) {}
+	
+	int draw_number()
+    {
+		return std::uniform_int_distribution<>(min, max)(eng);    	
+    }
+private:
+    int min,max;
+    std::mt19937 eng(std::random_device()());
+};
+
+uint32 Random::DrawNumber()
+{
+    return uniform_dist(eng);
+}
+
+int generate_negtive_offset()
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dis(NEG_LOW,NEG_HIGH);
+}
+
+uint32_t swap_endian(uint32_t val) 
+{
+    val = ((val << 8) & 0xFF00FF00) | ((val >> 8) & 0xFF00FF);
+    return (val << 16) | (val >> 16);
+}
+
+
+// Inner loop
+void convert_dataset_item(const char* image_filename_left,
+	const char* image_filename_right,
+	const char* image_filename_disp, 	
+	const char* db_filename,
+	const int& itemid) 
+{
+	cv::Mat img_left = cv::imread(image_filename_left,
+		IMREAD_GRAYSCALE);	  
+	assert(!img_left.empty() && img_left.isContinuous());
+	cv::Mat img_right = cv::imread(image_filename_right,
+		IMREAD_GRAYSCALE);	  
+	assert(!img_right.empty() && img_right.isContinuous());
+	
+	cv::Mat img_disp = cv::imread(image_filename_disp,
+		IMREAD_GRAYSCALE);	  
+	assert(!img_disp.empty() && img_disp.isContinuous());
+	
+	int rows = img_left.rows;
+	int cols = img_left.cols;
+	// Open leveldb
+	leveldb::DB* db;
+	leveldb::Options options;
+	options.create_if_missing = true;
+	options.error_if_exists = true;
+	leveldb::Status status = leveldb::DB::Open(
+	  options, db_filename, &db);
+	assert(status.ok());
+	
+	//random generators
+	Random positive_generator(time(NULL), -POS, POS);
+	Random negtive_generator(time(NULL), NEG_LOW, NEG_HIGH);
+	// Iterate every point within border
+	for(int c = 0 ; c < cols; ++c)
+	{
+		for(int r = 0; r < rows; ++r)
+		{
+			// Create negtive sample
+			{	
+				char* pixels = 
+					new char[2 * PATCH_SIZE * PATCH_SIZE];
+
+				std::string value;
+
+				caffe::Datum datum;
+				datum.set_channels(2);  // one channel for each image in the pair
+				datum.set_height(PATCH_SIZE);
+				datum.set_width(PATCH_SIZE);
+
+				cv::Mat patch_left = crop_image_patch(img_left, c , r);
+				if(patch_left.empty())
+					continue;
+				// Generate offsets
+				int offset = negtive_generator.draw_number();
+				cv::Mat patch_right = crop_image_patch(img_right, c + offset, r);
+				if(patch_right.empty())
+					continue;
+
+				 memcpy(pixels, patch_left.data, 
+				 	sizeof(unsigned char) * PIXEL_COUNT);
+				 memcpy(pixels + PIXEL_COUNT, patch_right.data, 
+				 	sizeof(unsigned char ) * PIXEL_COUNT);
+				 	
+			 	neg_datum.set_data(pixels);
+			 	neg_datum.set_label(0);
+			 	
+			 	datum.SerializeToString(&value);
+    			std::string key_str = caffe::format_int(itemid, 8);
+    			db->Put(leveldb::WriteOptions(), key_str, value);
+    			
+    			delete[] pixels;
+		 	}
+		 	
+			// Create positive sample
+			{	
+				char* pixels = 
+					new char[2 * PATCH_SIZE * PATCH_SIZE];
+
+				std::string value;
+
+				caffe::Datum datum;
+				datum.set_channels(2);  // one channel for each image in the pair
+				datum.set_height(PATCH_SIZE);
+				datum.set_width(PATCH_SIZE);
+
+				cv::Mat patch_left = crop_image_patch(img_left, c , r);
+				if(patch_left.empty())
+					continue;
+				// Generate offsets
+				int offset = positive_generator.draw_number();
+				cv::Mat patch_right = crop_image_patch(img_right, c + offset, r);
+				if(patch_right.empty())
+					continue;
+
+				 memcpy(pixels, patch_left.data, 
+				 	sizeof(unsigned char) * PIXEL_COUNT);
+				 memcpy(pixels + PIXEL_COUNT, patch_right.data, 
+				 	sizeof(unsigned char ) * PIXEL_COUNT);
+				 	
+			 	neg_datum.set_data(pixels);
+			 	neg_datum.set_label(0);
+			 	
+			 	datum.SerializeToString(&value);
+    			std::string key_str = caffe::format_int(itemid, 8);
+    			db->Put(leveldb::WriteOptions(), key_str, value);
+    			
+    			delete[] pixels;
+		 	}
+		}
+	}
+	return;
+}
+
+// Conveision procedure
+void convert_dataset(const char* imgs_dir_left,
+				const char* imgs_dir_right,
+				const char* imgs_dir_disp)
+{
+	std::vector<const char*> img_filenames_left;
+	std::vector<const char*> img_filenames_right;
+	std::vector<const char*> img_filenames_disp;
+	
+	int num_imgs = 0;
+	
+	img_filenames_left = list_filename(imgs_dir_left);
+	img_filenames_right = list_filename(imgs_dir_right);
+	img_filenames_disp = list_filename(imgs_dir_disp);
+	
+	num_imgs = imgs_dir_left.size();
+	
+	for(int itemid = 0; itemid < num_imgs; ++itemid)
+		convert_dataset_item(img_filenames_left[itemid],
+			img_filenames_right[itemid],
+			img_filenames_disp[itemid],
+			db_filename,
+			itemid);
+}
+
+int main(int argc,char** argv)
+{
+	if(argc < 3)
+		return 1;
+	const char* imgs_dir = argv[1];
+	const char* db_filename = argv[2];
+	
+	return 0;
+}

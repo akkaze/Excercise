@@ -1,0 +1,535 @@
+Start testing: Jul 20 09:14 CST
+----------------------------------------------------------
+1/1 Testing: test
+1/1 Test: test
+Command: "/home/zak/Code/cblas_matrix_mult/runUnitTests"
+Directory: /home/zak/Code/cblas_matrix_mult
+"test" start time: Jul 20 09:14 CST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 2 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 2 tests from MULTITEST
+[ RUN      ] MULTITEST.IM2COL
+[       OK ] MULTITEST.IM2COL (0 ms)
+[ RUN      ] MULTITEST.COL2IM
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.796128517536, which exceeds 1e-5, where
+im_p[i] evaluates to 2.1487999489959999,
+im_e[i] evaluates to 1.3526714314599999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.9588007243929999, which exceeds 1e-5, where
+im_p[i] evaluates to 2.3717556346320001,
+im_e[i] evaluates to -0.58704508976100001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.968769519316, which exceeds 1e-5, where
+im_p[i] evaluates to -1.138614293346,
+im_e[i] evaluates to 1.83015522597, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.1946435297790003, which exceeds 1e-5, where
+im_p[i] evaluates to -5.58325466416,
+im_e[i] evaluates to -0.38861113438099998, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.747252437907, which exceeds 1e-5, where
+im_p[i] evaluates to -3.2942657826660002,
+im_e[i] evaluates to 0.45298665524100001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 8.9790562763599997, which exceeds 1e-5, where
+im_p[i] evaluates to 8.9790562763599997,
+im_e[i] evaluates to 0, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 13.658194591559999, which exceeds 1e-5, where
+im_p[i] evaluates to -13.658194591559999,
+im_e[i] evaluates to 0, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 6.5614255904309999, which exceeds 1e-5, where
+im_p[i] evaluates to 7.09862557768,
+im_e[i] evaluates to 0.53719998724899998, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.5915299383580002, which exceeds 1e-5, where
+im_p[i] evaluates to -1.9985910297,
+im_e[i] evaluates to 0.59293890865800003, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.4857000529090003, which exceeds 1e-5, where
+im_p[i] evaluates to -2.6754691018000001,
+im_e[i] evaluates to -0.18976904889099999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.1862878004899997, which exceeds 1e-5, where
+im_p[i] evaluates to -4.1090922285199998,
+im_e[i] evaluates to 1.0771955719699999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.949564754571, which exceeds 1e-5, where
+im_p[i] evaluates to -1.26952562752,
+im_e[i] evaluates to 0.680039127051, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.525991951592, which exceeds 1e-5, where
+im_p[i] evaluates to 0.355118836878,
+im_e[i] evaluates to 1.88111078847, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.054978747022, which exceeds 1e-5, where
+im_p[i] evaluates to 2.0168440338520002,
+im_e[i] evaluates to -3.0381347131699998, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 8.9076218740681004, which exceeds 1e-5, where
+im_p[i] evaluates to 8.8783213144800008,
+im_e[i] evaluates to -0.0293005595881, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.1041730287169997, which exceeds 1e-5, where
+im_p[i] evaluates to -3.293942077608,
+im_e[i] evaluates to -0.18976904889099999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 9.5616529204000003, which exceeds 1e-5, where
+im_p[i] evaluates to 8.1658392543599998,
+im_e[i] evaluates to -1.39581366604, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.3520088982490002, which exceeds 1e-5, where
+im_p[i] evaluates to -4.9010531953600003,
+im_e[i] evaluates to -0.549044297111, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.406395521526, which exceeds 1e-5, where
+im_p[i] evaluates to -2.1616314524360001,
+im_e[i] evaluates to 2.2447640690899999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.0587988862320001, which exceeds 1e-5, where
+im_p[i] evaluates to -0.21756687902800001,
+im_e[i] evaluates to -2.27636576526, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.2784264662179998, which exceeds 1e-5, where
+im_p[i] evaluates to 1.5419547129360001,
+im_e[i] evaluates to -0.73647175328199999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.1260630918099999, which exceeds 1e-5, where
+im_p[i] evaluates to -2.8222623463800001,
+im_e[i] evaluates to 1.30380074543, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.9592816430519999, which exceeds 1e-5, where
+im_p[i] evaluates to 5.053428145242,
+im_e[i] evaluates to 3.0941465021900001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.17347619726600016, which exceeds 1e-5, where
+im_p[i] evaluates to 1.2099865729860002,
+im_e[i] evaluates to 1.03651037572, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.6718989997390015, which exceeds 1e-5, where
+im_p[i] evaluates to 4.0768798971690012,
+im_e[i] evaluates to 1.40498089743, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.6681291125240003, which exceeds 1e-5, where
+im_p[i] evaluates to 3.9289633345140005,
+im_e[i] evaluates to -1.7391657780100001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 7.4935155107199991, which exceeds 1e-5, where
+im_p[i] evaluates to 9.861110813789999,
+im_e[i] evaluates to 2.3675953030699999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.01059138586999997, which exceeds 1e-5, where
+im_p[i] evaluates to -0.70000819218599997,
+im_e[i] evaluates to -0.689416806316, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 10.345527475929998, which exceeds 1e-5, where
+im_p[i] evaluates to 7.6119792589799991,
+im_e[i] evaluates to -2.7335482169500001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.2217823925250002, which exceeds 1e-5, where
+im_p[i] evaluates to -1.7708266896360001,
+im_e[i] evaluates to -0.549044297111, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.8851249148260001, which exceeds 1e-5, where
+im_p[i] evaluates to -2.0040141263560001,
+im_e[i] evaluates to 1.88111078847, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.7552168840259998, which exceeds 1e-5, where
+im_p[i] evaluates to -1.282917829144,
+im_e[i] evaluates to -3.0381347131699998, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 9.8017251603119018, which exceeds 1e-5, where
+im_p[i] evaluates to -9.8310257199000013,
+im_e[i] evaluates to -0.0293005595881, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.1900270002569999, which exceeds 1e-5, where
+im_p[i] evaluates to -2.6781662468679999,
+im_e[i] evaluates to 0.51186075338899995, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.5194426538459997, which exceeds 1e-5, where
+im_p[i] evaluates to 3.5363935840559999,
+im_e[i] evaluates to 2.0169509302100002, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.4843913505649997, which exceeds 1e-5, where
+im_p[i] evaluates to -3.0334356476759998,
+im_e[i] evaluates to -0.549044297111, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.0796813187739998, which exceeds 1e-5, where
+im_p[i] evaluates to 1.1650827503160002,
+im_e[i] evaluates to 2.2447640690899999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.566910534774, which exceeds 1e-5, where
+im_p[i] evaluates to -3.306076312784,
+im_e[i] evaluates to -1.7391657780100001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.2723792203339999, which exceeds 1e-5, where
+im_p[i] evaluates to -1.904783917264,
+im_e[i] evaluates to 2.3675953030699999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.86552098058999993, which exceeds 1e-5, where
+im_p[i] evaluates to -1.5549377869059999,
+im_e[i] evaluates to -0.689416806316, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.65110699820800022, which exceeds 1e-5, where
+im_p[i] evaluates to 3.7452535003980003,
+im_e[i] evaluates to 3.0941465021900001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.88523894792620006, which exceeds 1e-5, where
+im_p[i] evaluates to 0.15127142779380001,
+im_e[i] evaluates to 1.03651037572, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.6639053850459993, which exceeds 1e-5, where
+im_p[i] evaluates to 7.068886282475999,
+im_e[i] evaluates to 1.40498089743, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 15.757856883480001, which exceeds 1e-5, where
+im_p[i] evaluates to -17.52880008684,
+im_e[i] evaluates to -1.7709432033600001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 11.652373365191901, which exceeds 1e-5, where
+im_p[i] evaluates to -11.68167392478,
+im_e[i] evaluates to -0.0293005595881, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 6.8025869484910002, which exceeds 1e-5, where
+im_p[i] evaluates to 6.6128178996000004,
+im_e[i] evaluates to -0.18976904889099999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 19.548372037930005, which exceeds 1e-5, where
+im_p[i] evaluates to 18.152558371890006,
+im_e[i] evaluates to -1.39581366604, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.4308793369389998, which exceeds 1e-5, where
+im_p[i] evaluates to 2.1388274919839998,
+im_e[i] evaluates to -0.29205184495499997, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.6311663575759994, which exceeds 1e-5, where
+im_p[i] evaluates to -2.8567793462159998,
+im_e[i] evaluates to 1.77438701136, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.5164482785499995, which exceeds 1e-5, where
+im_p[i] evaluates to 3.8015745294299998,
+im_e[i] evaluates to -1.7148737491199999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.6147272510599997, which exceeds 1e-5, where
+im_p[i] evaluates to -6.9126910204799996,
+im_e[i] evaluates to -1.2979637694199999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.1760881005599999, which exceeds 1e-5, where
+im_p[i] evaluates to -1.0739517839599999,
+im_e[i] evaluates to 1.1021363166, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 6.1248255589439999, which exceeds 1e-5, where
+im_p[i] evaluates to -3.4836657119940004,
+im_e[i] evaluates to 2.6411598469499999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.3552170470240004, which exceeds 1e-5, where
+im_p[i] evaluates to 5.73690020032,
+im_e[i] evaluates to 0.381683153296, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.93333647560799993, which exceeds 1e-5, where
+im_p[i] evaluates to 1.2426383937359999,
+im_e[i] evaluates to 0.30930191812800001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 7.27232458705, which exceeds 1e-5, where
+im_p[i] evaluates to 5.5331588090399997,
+im_e[i] evaluates to -1.7391657780100001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.4979076592139999, which exceeds 1e-5, where
+im_p[i] evaluates to 3.8655029622839998,
+im_e[i] evaluates to 2.3675953030699999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.1937452143040002, which exceeds 1e-5, where
+im_p[i] evaluates to -2.8831620206199999,
+im_e[i] evaluates to -0.689416806316, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.0229435435492, which exceeds 1e-5, where
+im_p[i] evaluates to 0.28939532659919998,
+im_e[i] evaluates to -2.7335482169500001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.89496889227499998, which exceeds 1e-5, where
+im_p[i] evaluates to -1.444013189386,
+im_e[i] evaluates to -0.549044297111, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 6.9539853560100005, which exceeds 1e-5, where
+im_p[i] evaluates to -5.0728745675400004,
+im_e[i] evaluates to 1.88111078847, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 12.615526199750001, which exceeds 1e-5, where
+im_p[i] evaluates to 9.5773914865799998,
+im_e[i] evaluates to -3.0381347131699998, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.1956147121249998, which exceeds 1e-5, where
+im_p[i] evaluates to 1.3208350579469998,
+im_e[i] evaluates to -0.87477965417799997, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 9.9936169685399996, which exceeds 1e-5, where
+im_p[i] evaluates to -7.8855243007199993,
+im_e[i] evaluates to 2.1080926678199998, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 5.6817467599649998, which exceeds 1e-5, where
+im_p[i] evaluates to -3.5180363788650002,
+im_e[i] evaluates to 2.1637103811, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 8.5687558647450004, which exceeds 1e-5, where
+im_p[i] evaluates to -8.8608077096999995,
+im_e[i] evaluates to -0.29205184495499997, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.0975724273249998, which exceeds 1e-5, where
+im_p[i] evaluates to -2.3231854159649998,
+im_e[i] evaluates to 1.77438701136, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.5310297888419999, which exceeds 1e-5, where
+im_p[i] evaluates to 3.353356026972,
+im_e[i] evaluates to -1.1776737618699999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.51299786419600002, which exceeds 1e-5, where
+im_p[i] evaluates to 2.0562618677039999,
+im_e[i] evaluates to 2.5692597318999999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.5726771536050004, which exceeds 1e-5, where
+im_p[i] evaluates to 4.3362470025300004,
+im_e[i] evaluates to -0.23643015107500001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.76936622064599991, which exceeds 1e-5, where
+im_p[i] evaluates to 1.871793626304,
+im_e[i] evaluates to 2.6411598469499999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.23895988352879999, which exceeds 1e-5, where
+im_p[i] evaluates to 0.14272326976720001,
+im_e[i] evaluates to 0.381683153296, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.049811794120200037, which exceeds 1e-5, where
+im_p[i] evaluates to 0.25949012400779997,
+im_e[i] evaluates to 0.30930191812800001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.3631014758979996, which exceeds 1e-5, where
+im_p[i] evaluates to 2.7088263045679999,
+im_e[i] evaluates to -1.6542751713299999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.7700252605399998, which exceeds 1e-5, where
+im_p[i] evaluates to -4.0679890299599997,
+im_e[i] evaluates to -1.2979637694199999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.4267549754209998, which exceeds 1e-5, where
+im_p[i] evaluates to -3.616524024312,
+im_e[i] evaluates to -0.18976904889099999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 8.4611774259400008, which exceeds 1e-5, where
+im_p[i] evaluates to 7.0653637599000003,
+im_e[i] evaluates to -1.39581366604, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.72509994136499989, which exceeds 1e-5, where
+im_p[i] evaluates to -1.0171517863199999,
+im_e[i] evaluates to -0.29205184495499997, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.1733847990720001, which exceeds 1e-5, where
+im_p[i] evaluates to -2.3989977877120001,
+im_e[i] evaluates to 1.77438701136, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.43111672678000024, which exceeds 1e-5, where
+im_p[i] evaluates to -2.1459904759000001,
+im_e[i] evaluates to -1.7148737491199999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.1277251389259999, which exceeds 1e-5, where
+im_p[i] evaluates to -2.0157177250839999,
+im_e[i] evaluates to -2.1434428640099998, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.0985995007180001, which exceeds 1e-5, where
+im_p[i] evaluates to 3.796967731748,
+im_e[i] evaluates to 2.6983682310299999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 10.413188077679999, which exceeds 1e-5, where
+im_p[i] evaluates to -8.2494776965799996,
+im_e[i] evaluates to 2.1637103811, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.2979353992679998, which exceeds 1e-5, where
+im_p[i] evaluates to -5.2557182007199996,
+im_e[i] evaluates to -0.95778280145200001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.4743390891549994, which exceeds 1e-5, where
+im_p[i] evaluates to -5.3413619111759996,
+im_e[i] evaluates to -0.86702282202100001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.8560068397, which exceeds 1e-5, where
+im_p[i] evaluates to 2.1411330905799999,
+im_e[i] evaluates to -1.7148737491199999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.5418684934879998, which exceeds 1e-5, where
+im_p[i] evaluates to 3.5181893167379998,
+im_e[i] evaluates to 1.97632082325, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.7451101692399997, which exceeds 1e-5, where
+im_p[i] evaluates to -3.7917712714239999,
+im_e[i] evaluates to -0.046661102183999999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 8.0454019465650006, which exceeds 1e-5, where
+im_p[i] evaluates to 7.3624946180800004,
+im_e[i] evaluates to -0.68290732848500002, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.52165235339399996, which exceeds 1e-5, where
+im_p[i] evaluates to 0.57402662591599996,
+im_e[i] evaluates to 1.0956789793099999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.23353117322600001, which exceeds 1e-5, where
+im_p[i] evaluates to 0.23353117322600001,
+im_e[i] evaluates to 0, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.4602042301, which exceeds 1e-5, where
+im_p[i] evaluates to 2.4602042301,
+im_e[i] evaluates to 0, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 4.3468476467499997, which exceeds 1e-5, where
+im_p[i] evaluates to 3.5013685521599998,
+im_e[i] evaluates to -0.84547909459000004, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.8242109831960001, which exceeds 1e-5, where
+im_p[i] evaluates to -1.2279790687659999,
+im_e[i] evaluates to 1.5962319144299999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 2.9245590384660001, which exceeds 1e-5, where
+im_p[i] evaluates to -2.7777995875829999,
+im_e[i] evaluates to 0.14675945088299999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.095082864678, which exceeds 1e-5, where
+im_p[i] evaluates to -0.83809041252200001,
+im_e[i] evaluates to 0.25699245215599997, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 3.8408086675099997, which exceeds 1e-5, where
+im_p[i] evaluates to 3.3704316097799998,
+im_e[i] evaluates to -0.47037705772999999, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.45861277043999993, which exceeds 1e-5, where
+im_p[i] evaluates to 1.020104786578,
+im_e[i] evaluates to 0.56149201613800004, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 1.267746441011, which exceeds 1e-5, where
+im_p[i] evaluates to -1.0660820121800001,
+im_e[i] evaluates to 0.201664428831, and
+1e-5 evaluates to 1.0000000000000001e-05.
+/home/zak/Code/cblas_matrix_mult/main.cpp:51: Failure
+The difference between im_p[i] and im_e[i] is 0.20517767217499994, which exceeds 1e-5, where
+im_p[i] evaluates to 0.65816432741599995,
+im_e[i] evaluates to 0.45298665524100001, and
+1e-5 evaluates to 1.0000000000000001e-05.
+[  FAILED  ] MULTITEST.COL2IM (15 ms)
+[----------] 2 tests from MULTITEST (15 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test case ran. (15 ms total)
+[  PASSED  ] 1 test.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] MULTITEST.COL2IM
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"test" end time: Jul 20 09:14 CST
+"test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 20 09:14 CST

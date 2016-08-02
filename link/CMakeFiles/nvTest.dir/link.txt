@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/nvTest.dir/main.cpp.o CMakeFiles/nvTest.dir/vecAdd_cpu.cpp.o  -o nvTest -rdynamic libvecAdd.a /usr/local/cuda-7.5/lib64/libcudart.so -lboost_system -lboost_thread -lboost_timer -lboost_chrono -lpthread -Wl,-rpath,/usr/local/cuda-7.5/lib64 

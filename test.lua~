@@ -1,0 +1,81 @@
+packageDir = "/home/zak/Source/cvpr16_stereo_public/"
+package.path = package.path..";"..packageDir.."models/split_win19_dep9.lua"
+print(package.path)
+require("split_win19_dep9.lua")
+nChannel = 1
+bottom,top = split_model(nChannel)
+bottom = bottom
+top = top
+bottom_param,bottom_grad_param = bottom:getParameters()
+params = torch.load(packageDir.."pretrain/kitti2012/param.t7")
+bottom_param:copy(params)
+
+--weight_tbl = {}
+--counter = 0
+--source = "const double weight[] = {"
+--for i = 1,#bottom,1 
+--do
+--	weight = bottom.modules[i].weight
+--	if weight ~=nil then
+--	print(i)
+--		if weight:size():size() == 4 then
+--		weight = torch.reshape(weight,weight:size(1) * weight:size(2) * weight:size(3) * weight:size(4))
+--		for j = 1,weight:size(1),1 do
+--			if counter % 20 == 0 then
+--				table.insert(weight_tbl,tostring(weight[j]))
+--				counter = counter + 1
+--			else
+--				table.insert(weight_tbl,tostring(weight[j]).."\\\n")
+--				counter = counter + 1
+--			end			
+--		end
+--	end
+--	end
+--end
+--bias_tbl = {}
+--counter = 0
+--source = "const double bias[] = {"
+--for i = 1,#bottom,1 
+--do
+--	bias = bottom.modules[i].bias
+--	if bias ~=nil then
+--	print(i)
+--		for j = 1,bias:size(1),1 do
+--			if counter % 20 == 0 then
+--				table.insert(bias_tbl,tostring(bias[j]))
+--				counter = counter + 1
+--			else
+--				table.insert(bias_tbl,tostring(bias[j]).."\\\n")
+--				counter = counter + 1
+--			end			
+--		end
+--	end
+--end
+
+bn_params = torch.load(packageDir.."pretrain/kitti2012/bn_meanstd.t7")
+bn_means,bn_stds = table.unpack(bn_params)
+bn_mods = #bn_stds
+bn_mean_tbl = {}
+counter = 0 
+source = "const double bias[] = {" 
+do
+	for i = 1,bn_mods do
+	bn_mean = bn_std[i]
+	print(i)
+		for j = 1,bn_mean:size(1),1 do
+			if counter % 20 == 0 then
+				table.insert(bn_mean_tbl,tostring(bn_mean[j]))
+				counter = counter + 1
+			else
+				table.insert(bn_mean_tbl,tostring(bn_mean[j]).."\\\n")
+				counter = counter + 1
+			end			
+		end
+	end
+end
+source = source..table.concat(bn_mean_tbl,",")
+source = source.."};"
+--print(source)
+file = io.open("/home/zak/bn_std.c","w")
+file:write(source)
+file:close()

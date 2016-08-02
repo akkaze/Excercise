@@ -1,0 +1,7 @@
+#include "a.h"
+#include "stdio.h"
+
+void printhello()
+{
+	print("Hello");
+}

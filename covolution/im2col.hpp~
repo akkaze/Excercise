@@ -1,0 +1,50 @@
+void im2col(double* im,
+	double* col,
+	const int& filter_h,
+	const int& filter_w,
+	const int& padding,
+	const int& stride)
+{
+	const int& nums = im->nums_;
+	const int& channels = im->channels_;
+	const int& rows = im->rows_;
+	const int& cols = im->cols_;
+	
+	const int& new_rows = ( 
+		rows + 2 * padding - filter_h) /
+		stride + 1;
+	const int& new_cols = ( 
+		rows + 2 * padding - filter_h) /
+		stride + 1;
+
+	for(int hi = 0; hi < filter_h; hi++)
+		for(int wi = 0; wi < filter_w; wi++)
+			for(int ci = 0; ci < channels; ci++)
+			{
+				const int& r = hi * 
+					filter_w * 
+					channels + 
+					wi * 
+					channels + ci;
+				for(int i = 0; i < nums; i++)
+					for(int hj = 0; hj < new_h; hj++)
+						for(int wj = 0; wj < new_w; wj++)
+						{
+							const int& c = i *
+								new_h *
+								new_w +
+								hj *
+								new_w + wj;
+							const int& orig_hj = hj - padding;
+							const int& orig_wj = wj - padding;
+							if(orig_hj >=0 && orig_hj < rows &&
+								orig_wj >=0 && orig_wj < cols)
+								col[r,c] = im[i,ci, stride * hj + hi,
+												stride * wj + wi]; 
+							else
+								col[r,c] = 0;
+						}
+			}
+}
+
+

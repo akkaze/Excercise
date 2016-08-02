@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zak/Exercise/eigen/main.cpp
+stdio.h
+-
+pthread.h
+-
+string.h
+-
+sys/types.h
+-
+unistd.h
+-
+

@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zak2616/Exercise/clTest/main.cpp
+iostream
+-
+OpenCL/cl.hpp
+-
+CL/cl.hpp
+-
+

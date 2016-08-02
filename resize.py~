@@ -1,0 +1,60 @@
+import os
+import sys
+from math import ceil
+from PIL import Image
+
+def defauntCallback(fileName):
+	if fileName.endswith("1.png"):
+		return True
+	else:
+		return False
+
+imgPaths = {'left':[],'right':[],'disp';[]}
+
+def resize(folder, fileName,outputFolder,
+interType,outputFilePaths,callback=defa):
+    filePath = os.path.join(folder, fileName)
+    if callback(fileName):
+        return
+    outputFilePath = os.path.join(outputFolder,fileName)
+    outputFilePaths.append(outputFilePath)
+    im = Image.open(filePath)
+    width, height  = im.size
+    divisor = 64.
+    adapted_width = ceil(width/(divisor * 5)) * divisor
+    adapted_height = ceil(height/(divisor * 3)) * divisor
+   	if(iterType == 'n'):
+    	newIm = im.resize((int(adapted_width), int(adapted_height)),Image.NEAREST)
+	else:
+		newIm = im.resize((int(adapted_width), int(adapted_height)),Image.NEAREST)
+    # i am saving a copy, you can overrider orginal, or save to other folder
+    newIm.save(outputFilePath)
+
+def writeFilePaths(txtFile,imgPaths):
+	with open(txtFile) as f:
+		f.writeLines(imgPaths)
+	f.close()
+	
+	
+def bulkResize(imageFolder,outputFolder,outputFilePaths,interType):
+    imgExts = ["png", "bmp", "jpg"]
+    for path, dirs, files in os.walk(imageFolder):
+        for fileName in files:
+            ext = fileName[-3:].lower()
+            if ext not in imgExts:
+                continue
+            resize(path, fileName, outputFolder,interType,outputFilePaths)
+
+if __name__ == "__main__":
+    imageFolder=sys.argv[1] # first arg is path to image folder
+    forlderNames = []
+    leftFolder = os.path.join(imageFolder,folderNames[0])
+    rightFolder = os.path.join(imageFolder,folderNames[1])
+    dispFolder = os.path.join(imageFolder,folderNames[0])
+    outputFolder=sys.argv[2]
+    leftOutputFolder = os.path.join(outputFolder,folderNames[0])
+    rightOutputFolder = os.path.join(outputFolder,folderNames[1])
+    dispOutputFolder = os.path.join(outputFolder,folderNames[0])
+    if not os.path.exists(outputFolder):
+        os.mkdir(outputFolder)
+    bulkResize(imageFolder,outputFolder)

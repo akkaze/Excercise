@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zak2616/Exercise/link/Test.h
+
+/home/zak2616/Exercise/link/main.cpp
+Test.h
+/home/zak2616/Exercise/link/Test.h
+stdlib.h
+-
+iostream
+-
+boost/timer/timer.hpp
+-
+
+/home/zak2616/Exercise/link/vecAdd_cpu.cpp
+Test.h
+/home/zak2616/Exercise/link/Test.h
+math.h
+-
+
